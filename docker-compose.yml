@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile-php
+    container_name: php-fpm
+    restart: always
+    working_dir: /var/www/
+
+  nginx:
+    build:
+      context: ./
+      dockerfile: Dockerfile-nginx
+    container_name: nginx
+    restart: always
+    # ports: #only for development
+    #   - 8000:80
